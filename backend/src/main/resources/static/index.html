@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Lists</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Demo Lists</h1>
+    </div>
+
+    <script>
+        const apiURL = "http://localhost:8085/api/profile";
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    profiles: []
+                }
+            },
+            created() {
+                fetch(apiURL)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(profiles => {
+                        this.profiles = profiles;
+                    })
+            }
+        });
+    </script>
+
+</body>
+
+</html>
