@@ -11,6 +11,16 @@
 <body>
     <div id="app">
         <h1>Demo Lists</h1>
+        <ul>
+            <li v-for="profile in profiles" @click="showProfile(profile)">{{ profile.id }}</li>
+        </ul>
+        <div class="details" v-show="showDetails"></div>
+        <h2>Show Detail</h2>
+        <p>
+            <li v-for="profile in profiles">
+                @{{profile.id}} - {{profile.name}}
+            </li>
+        </p>
     </div>
 
     <script>
@@ -19,7 +29,15 @@
             el: '#app',
             data() {
                 return {
-                    profiles: []
+                    profiles: [],
+                    showDetails: false,
+                    selectedProfile: ''
+                }
+            },
+            method: {
+                showProfile(profile) {
+                    this.selectedProfile = profile;
+                    this.showDetails = true;
                 }
             },
             created() {
