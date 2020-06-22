@@ -31,12 +31,11 @@ public class ProfileController {
 
 	@GetMapping()
 	public List<Profile> profiles(){
-		return profiles;
+		return profiles = profService.searchAllId();
 	}
 
 	@GetMapping("/{id}")
 	public Profile get(@PathVariable String id){
-
 		return profiles.stream().filter(f -> id.equals(f.getId())).findAny().orElse(null);
 	}
 

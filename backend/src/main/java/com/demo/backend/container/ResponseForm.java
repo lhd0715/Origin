@@ -16,5 +16,4 @@ public class ResponseForm implements WebResponseForm {
     public void setProfiles(List<Profile> profiles) {
         this.profiles = profiles;
     }
-
 }

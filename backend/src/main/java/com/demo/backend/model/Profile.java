@@ -3,7 +3,7 @@ package com.demo.backend.model;
 public class Profile {
     private String id;
     private String name;
-    
+
     public Profile(String id, String name){
         this.id = id;
         this.name = name;
